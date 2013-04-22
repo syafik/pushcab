@@ -128,6 +128,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby
   better_errors
   bootstrap-sass
   coffee-rails (~> 3.2.1)

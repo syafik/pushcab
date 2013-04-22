@@ -1,9 +1,11 @@
 Pushcab::Application.routes.draw do
  
-  resources :roles
-
-
   devise_for :users
+  
+  # drivers routes
+  match "/drivers/sign_in" => "driver/session#new", :as => :driver_sign_in
+  match "/drivers/create" => "driver/session#create", :as => :create_driver_sign_in, via: :post
+  match "/drivers/delete" => "driver/session#delete", :as => :driver_log_out, via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,7 +56,7 @@ Pushcab::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'home#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

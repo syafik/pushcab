@@ -1,8 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-Role.create([{name: "passanger", description: "passanger"}, {name: "driver", description: "driver"}])
+driver = Driver.new(email: "user1@pushcab.com", phone_no: "081809159141", police_no: "D 1264 ER", username: "user1")
+driver.password = "123456"
+driver.password_confirmation = "123456"
+driver.save!

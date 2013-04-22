@@ -18,3 +18,4 @@ gem 'inherited_resources'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
+gem "bcrypt-ruby"
