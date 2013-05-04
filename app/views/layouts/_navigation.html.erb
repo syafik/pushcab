@@ -1,6 +1,12 @@
 <%= link_to "Pushcab", root_path, :class => 'brand' %>
 <% if user_signed_in? or cab_signed_in? %>
     <ul class="nav nav-pills pull-right">
+      <% if current_user %>
+          <li>
+            <%= link_to 'CABS', taxi_requests_path %>
+          </li>
+      <% end %>
+
       <li class="dropdown" id="menu1">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
           My Account
