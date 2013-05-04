@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :timeoutable, :token_authenticatable, :confirmable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, 
-    :phone_no
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :confirmed_at,
+    :phone_no, :username
   
   validates :phone_no, presence: true, uniqueness: true
 end
