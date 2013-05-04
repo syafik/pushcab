@@ -1,4 +1,4 @@
-<div><%= link_to "New Request", new_taxi_request_path, class: "btn btn-primary" %></div>
+<div><%= link_to "New Request", taxi_requests_path, class: "btn btn-primary" %></div>
 <br>
 <table class="table table-bordered table-stripped table-hover">
   <thead>
@@ -15,8 +15,8 @@
       <% counter = i+1 %>
       <tr class="<%= status(request) %>">
         <td><%= counter %></td>
-        <td><%= request.police_no %></td>
-        <td><%= request.location || "UNKNOWN" %></td>
+        <td><%= request.driver.police_no %></td>
+        <td><%= request.pickup_location || "UNKNOWN" %></td>
         <td><%= format_date(request.pickup_time) %></td>
         <td><%= status(request) %></td>
       </tr>

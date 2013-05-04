@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def format_date(time)
-    time.strftime("%d/%b/%Y")
+    time ? time.strftime("%d/%b/%Y") : "UNKNOWN"
   end
 
   def taxi_status(resource)
