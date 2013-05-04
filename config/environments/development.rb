@@ -34,6 +34,14 @@ Pushcab::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => 'pushcab.com',
+      :user_name            => 'pushjaw@gmail.com',
+      :password             => 'pushjaw123',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true  }
 end
