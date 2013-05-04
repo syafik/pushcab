@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @taxi_request.user_id %>
+</p>
+
+<p>
+  <b>Driver:</b>
+  <%= @taxi_request.driver_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @taxi_request.status %>
+</p>
+
+<p>
+  <b>Pickup location:</b>
+  <%= @taxi_request.pickup_location %>
+</p>
+
+<p>
+  <b>Pickup time:</b>
+  <%= @taxi_request.pickup_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_taxi_request_path(@taxi_request) %> |
+<%= link_to 'Back', taxi_requests_path %>

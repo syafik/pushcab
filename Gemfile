@@ -16,6 +16,7 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'inherited_resources' 
 gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 gem 'devise'
 gem 'simple_form'
 gem "bcrypt-ruby"

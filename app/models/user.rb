@@ -6,17 +6,18 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
   attr_accessible :email, :password, :password_confirmation, :remember_me, :confirmed_at,
-    :phone_no, :username, :login
-  
+                  :phone_no, :username, :login
+
   validates :phone_no, :username, presence: true, uniqueness: true
+
+  has_many :taxi_requests, dependent: :destroy
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      where(conditions).where(["lower(username) = :value OR lower(email) = :value", {:value => login.downcase}]).first
     else
       where(conditions).first
     end
   end
-
 end

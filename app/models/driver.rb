@@ -1,6 +1,6 @@
 class Driver < ActiveRecord::Base
   attr_accessible :email, :password_salt, :password_hash, :username, 
-                  :phone_no, :police_no, :password
+                  :phone_no, :police_no, :password, :status
   
   attr_accessor :password
   
@@ -10,7 +10,9 @@ class Driver < ActiveRecord::Base
   validates :password, presence: true, on: :create
   validates :username, :police_no, :phone_no, :email, :police_no, presence: true, uniqueness: true
   validates :email, format: {with: /^.+@.+$/}
-  
+
+  has_many :taxi_requests, dependent: :destroy
+
   def self.authenticate(email, password)
     driver = find_by_email(email)
     if driver && driver.password_hash == BCrypt::Engine.hash_secret(password, driver.password_salt)

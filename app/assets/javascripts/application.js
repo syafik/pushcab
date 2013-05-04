@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap-modal
 //= require bootstrap-dropdown
+//= require bootstrap-datepicker
 //= require_tree .
