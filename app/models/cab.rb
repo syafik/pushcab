@@ -1,14 +1,13 @@
-class User < ActiveRecord::Base
+class Cab < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :timeoutable, :token_authenticatable, :confirmable,
          :authentication_keys => [:login]
 
   attr_accessor :login
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :confirmed_at,
-                  :phone_no, :username, :login, :latitude, :longitude
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :police_no, :phone_no, :status,
+                  :username, :latitude, :longitude
 
-  validates :phone_no, :username, presence: true, uniqueness: true
+  validates :username, :police_no, :phone_no, :email, :police_no, presence: true, uniqueness: true
 
   has_many :taxi_requests, dependent: :destroy
 

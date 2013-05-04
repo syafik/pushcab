@@ -54,6 +54,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    geocoder (1.1.8)
     has_scope (0.5.1)
     hike (1.2.2)
     i18n (0.6.1)
@@ -136,6 +137,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 3.2.1)
   devise
+  geocoder
   inherited_resources
   jquery-rails
   pg

@@ -1,12 +1,12 @@
-[Driver, User].each(&:destroy_all)
+[Cab, User].each(&:destroy_all)
 
-p "creating drivers"
-(1..5).each do |driver|
-  Driver.create!(email: "driver#{driver}@pushcab.com",
+p "creating cabs"
+(1..5).each do |cab|
+  Cab.create!(email: "cab#{cab}@pushcab.com",
                 password: "password",
-                phone_no: "08180915914#{driver}",
-                police_no: "D126#{driver}ER",
-                username: "user#{driver}")
+                phone_no: "08180915914#{cab}",
+                police_no: "D126#{cab}ER",
+                username: "cab#{cab}")
 end
 
 p "creating passenger"

@@ -19,4 +19,5 @@ gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'
 gem 'devise'
 gem 'simple_form'
-gem "bcrypt-ruby"
+gem 'bcrypt-ruby'
+gem 'geocoder'

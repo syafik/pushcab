@@ -1,6 +1,6 @@
 <h1>Welcome !!</h1>
 <p>
-  <% if !user_signed_in? and !session[:user_id] %>
+  <% if !user_signed_in? and !cab_signed_in? %>
     Login As : 
     <%= link_to "Driver", driver_sign_in_path %>
     OR 
