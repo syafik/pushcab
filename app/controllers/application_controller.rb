@@ -2,6 +2,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authenticate_user!
 
+  def user_login?
+    user_signed_in? || cab_signed_in?
+  end
+
+  def current_login
+    if user_signed_in? || cab_signed_in?
+     user = current_user ?  current_user : current_cab
+    end
+  end
+
   def get_lat_lon
     my_ll = if Rails.env.eql?("development")
               [40.723323, -73.998413]

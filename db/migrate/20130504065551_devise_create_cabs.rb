@@ -6,7 +6,7 @@ class DeviseCreateCabs < ActiveRecord::Migration
       t.string :encrypted_password, :null => false, :default => ""
       t.string :police_no
       t.string :phone_no
-      t.string :status
+      t.string :status, :default => "available"
       t.string :username
       t.float  :latitude
       t.float  :longitude

@@ -10,14 +10,14 @@
   </tr>
   </thead>
   <tbody>
-  <% @drivers.each_with_index do |driver, i| %>
+  <% @cabs.each_with_index do |cab, i| %>
       <% counter = i+1 %>
-      <tr class="<%= taxi_status(driver) %>">
+      <tr class="<%= taxi_status(cab) %>">
         <td><%= counter %></td>
-        <td><%= driver.police_no %></td>
-        <td><%= driver.username || "Anonymous" %></td>
-        <td><%= status(driver) %></td>
-        <td><%= link_to "send request", new_taxi_request_path(driver), class: "btn btn-mini btn-info", confirm: "Are you sure?", method: :post %></td>
+        <td><%= cab.police_no %></td>
+        <td><%= cab.username || "Anonymous" %></td>
+        <td><%= status(cab) %></td>
+        <td><%= link_to "send request", new_taxi_request_path(cab), class: "btn btn-mini btn-info", confirm: "Are you sure?", method: :post %></td>
       </tr>
   <% end %>
   </tbody>

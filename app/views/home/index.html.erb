@@ -1,9 +1,9 @@
 <h1>Welcome !!</h1>
 <p>
   <% if !user_signed_in? and !cab_signed_in? %>
-    Login As : 
-    <%= link_to "Driver", driver_sign_in_path %>
-    OR 
+    Login As :
+    <%= link_to "Driver", new_cab_session_path %>
+    OR
     <%= link_to "Passanger", new_user_session_path %>
   <% end %>
 </p>

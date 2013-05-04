@@ -10,4 +10,10 @@ module ApplicationHelper
   def taxi_status(resource)
     resource.status.eql?("available") ? "success" : "error"
   end
+
+  def current_login
+    if user_signed_in? || cab_signed_in?
+      user = current_user ?  current_user : current_cab
+    end
+  end
 end

@@ -15,7 +15,7 @@
       <% counter = i+1 %>
       <tr class="<%= status(request) %>">
         <td><%= counter %></td>
-        <td><%= request.driver.police_no %></td>
+        <td><%= request.cab.try(:police_no) %></td>
         <td><%= request.pickup_location || "UNKNOWN" %></td>
         <td><%= format_date(request.pickup_time) %></td>
         <td><%= status(request) %></td>
