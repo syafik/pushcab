@@ -1,6 +1,6 @@
 class Driver < ActiveRecord::Base
   attr_accessible :email, :password_salt, :password_hash, :username, 
-                  :phone_no, :police_no
+                  :phone_no, :police_no, :password
   
   attr_accessor :password
   
