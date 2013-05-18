@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :authenticate_user!
+  before_filter :authenticate_any!
+
+  def authenticate_any!
+    if cab_signed_in?
+      true
+    else
+      authenticate_user!
+    end
+  end
 
   def user_login?
     user_signed_in? || cab_signed_in?

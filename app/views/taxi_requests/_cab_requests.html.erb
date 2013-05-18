@@ -1,0 +1,26 @@
+
+<br>
+<h1>List Request</h1>
+<table class="table table-bordered table-stripped table-hover">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Username</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @my_requests.each_with_index do |request, i| %>
+      <% counter = i+1 %>
+      <tr class="success">
+        <td><%= counter %></td>
+        <td><%= request.user.username || "Anonymous" %></td>
+        <td><%= status(request) %></td>
+        <td>
+          <%= link_to "Approve", taxi_request_response_request_path(request.id, response: "approved"), class: "btn btn-mini btn-primary", confirm: "Are you sure?", method: :post %> |
+        <%= link_to "Decline", taxi_request_response_request_path(request.id, response: "declined"), class: "btn btn-mini btn-danger", confirm: "Are you sure?", method: :post %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

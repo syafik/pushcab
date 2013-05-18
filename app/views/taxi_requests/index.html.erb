@@ -1,4 +1,5 @@
 <br>
+<h1>Cabs</h1>
 <table class="table table-bordered table-stripped table-hover">
   <thead>
   <tr>
@@ -17,7 +18,7 @@
         <td><%= cab.police_no %></td>
         <td><%= cab.username || "Anonymous" %></td>
         <td><%= status(cab) %></td>
-        <td><%= link_to "send request", new_taxi_request_path(cab), class: "btn btn-mini btn-info", confirm: "Are you sure?", method: :post %></td>
+        <td><%= link_to "send request", new_taxi_request_path(cab), class: "btn btn-mini btn-info", confirm: "Are you sure?", method: :post unless taxi_status(cab).eql?("error") %></td>
       </tr>
   <% end %>
   </tbody>

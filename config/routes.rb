@@ -2,7 +2,9 @@ Pushcab::Application.routes.draw do
 
   devise_for :cabs
 
-  resources :taxi_requests, except: :new
+  resources :taxi_requests, except: :new  do
+    post 'response_request'
+  end
 
   devise_for :users
 
