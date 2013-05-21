@@ -1,0 +1,26 @@
+
+<div><%= link_to "New Request", taxi_requests_path, class: "btn btn-primary" %></div>
+<br>
+<table class="table table-bordered table-stripped table-hover">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>CAB No.</th>
+    <th>Pickup Location</th>
+    <th>Pickup Time</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @my_requests.each_with_index do |request, i| %>
+      <% counter = i+1 %>
+      <tr class="<%= status(request) %>">
+        <td><%= counter %></td>
+        <td><%= request.cab.try(:police_no) %></td>
+        <td><%= request.pickup_location || "UNKNOWN" %></td>
+        <td><%= format_date(request.pickup_time) %></td>
+        <td><%= status(request) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -8,7 +8,13 @@ module ApplicationHelper
   end
 
   def taxi_status(resource)
-    resource.status.eql?("available") ? "success" : "error"
+    requests = TaxiRequest.where(user_id: current_login, cab_id: resource.id, status: "pending")
+    if requests.blank?
+      resource.status.eql?("available") ? "success" : "error"
+    else
+      "error"
+    end
+
   end
 
   def current_login

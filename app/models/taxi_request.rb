@@ -4,4 +4,5 @@ class TaxiRequest < ActiveRecord::Base
   belongs_to :user
   belongs_to :cab
 
+  scope :pending, where(status: "pending")
 end

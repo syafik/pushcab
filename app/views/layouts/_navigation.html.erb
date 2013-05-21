@@ -14,13 +14,11 @@
         </a>
         <ul class="dropdown-menu">
           <li>
-            <%= link_to 'Edit account', send("edit_#{current_user ?  'user' : 'cab'}_registration_path") %>
+            <%= link_to 'Edit account', send("edit_#{current_user ? 'user' : 'cab'}_registration_path") %>
           </li>
-          <% if current_user %>
               <li>
                 <%= link_to 'My Requests', my_requests_path %>
               </li>
-          <% end %>
           <li class="divider"></li>
           <li>
             <%= link_to 'Logout', destroy_user_session_path, :method => 'delete' %>
