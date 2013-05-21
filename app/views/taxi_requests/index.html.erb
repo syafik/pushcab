@@ -6,6 +6,7 @@
     <th>Taxi No.</th>
     <th>Driver Name</th>
     <th>Status</th>
+    <th>Maps</th>
     <th>Action</th>
   </tr>
   </thead>
@@ -17,6 +18,7 @@
         <td><%= cab.police_no %></td>
         <td><%= cab.username || "Anonymous" %></td>
         <td><%= status(cab) %></td>
+        <td><%= link_to image_tag("/assets/icon-map.png"), cab_path(cab) %></td>
         <td><%= link_to "send request", new_taxi_request_path(cab), class: "btn btn-mini btn-info", confirm: "Are you sure?", method: :post %></td>
       </tr>
   <% end %>

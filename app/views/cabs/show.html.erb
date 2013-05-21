@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+    <b>Driver:</b>
+    <%= @cab.username %>
+</p>
+
+<p>
+    <b>Status:</b>
+    <%= @cab.status %>
+</p>
+
+<p>
+    <b>Police no:</b>
+    <%= @cab.police_no %>
+</p>
+
+<p>
+    <div id="map"></div>
+</p>
+
+<%= content_for :javascript do %>
+    <script type="text/javascript">
+        var map;
+        var lat = <%= @cab.latitude %>
+        var lng = <%= @cab.longitude %>
+
+        $(document).ready(function(){
+            map = new GMaps({
+                div: '#map',
+                lat: lat,
+                lng: lng
+            });
+
+            map.addMarker({
+                lat: lat,
+                lng: lng,
+                title: "<%= @cab.try(:username) %>",
+                click: function(e) {
+                    alert('You clicked in this marker');
+                }
+            });
+
+        });
+    </script>
+<% end %>

@@ -7,3 +7,51 @@
     <%= link_to "Passanger", new_user_session_path %>
   <% end %>
 </p>
+
+<% if user_signed_in? %>
+    <p>
+      <h3>You are at:</h3>
+      <div id="map"></div>
+    </p>
+
+    <%= content_for :javascript do %>
+        <script type="text/javascript">
+            var map;
+            var lat = <%= current_login.latitude %>
+            var lng = <%= current_login.longitude %>
+
+            $(document).ready(function(){
+                map = new GMaps({
+                    div: '#map',
+                    lat: lat,
+                    lng: lng
+                });
+
+                map.addMarker({
+                    lat: lat,
+                    lng: lng,
+                    title: "<%= current_login.try(:username) %>",
+                    click: function(e) {
+                        alert('You clicked in this marker');
+                    }
+                });
+
+                GMaps.geolocate({
+                    success: function(position){
+                        map.setCenter(position.coords.latitude, position.coords.longitude);
+                    },
+                    error: function(error){
+                        alert('Geolocation failed: '+error.message);
+                    },
+                    not_supported: function(){
+                        alert("Your browser does not support geolocation");
+                    },
+                    always: function(){
+                        alert("Done!");
+                    }
+                });
+
+            });
+        </script>
+    <% end %>
+<% end %>

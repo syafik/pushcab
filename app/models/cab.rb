@@ -11,6 +11,9 @@ class Cab < ActiveRecord::Base
 
   has_many :taxi_requests, dependent: :destroy
 
+  geocoded_by :get_lat_lon   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -18,6 +21,10 @@ class Cab < ActiveRecord::Base
     else
       where(conditions).first
     end
+  end
+
+  def get_lat_lon
+    puts "get latitude and longitude"
   end
 
 end

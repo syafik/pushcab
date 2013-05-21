@@ -15,4 +15,6 @@
 //= require bootstrap-modal
 //= require bootstrap-dropdown
 //= require bootstrap-datepicker
+//= require gmaps_api
+//= require gmaps
 //= require_tree .
